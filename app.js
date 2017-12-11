@@ -17,25 +17,24 @@ var express     = require("express"),
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
-    
-console.log(process.env.DATABASEURL);
+ 
+//just printing the name of our development db to see if our environment variables work  
+//console.log(process.env.DATABASEURL);
     
  //mongodb://sarnava:joymohunbagan@ds135956.mlab.com:35956/yelpcamp_s1
 //var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
 //mongoose.connect(url);
 
 //this is the environment variable part
-
 var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
 mongoose.connect(url);
-
-
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
+
 // seedDB(); //seed the database which we are not doing here..it was initially 
 //written so that we have some dummy data to play with
 
