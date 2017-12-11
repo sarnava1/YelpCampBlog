@@ -17,11 +17,15 @@ var express     = require("express"),
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
+    
+console.log(process.env.DATABASEURL);
+    
  //mongodb://sarnava:joymohunbagan@ds135956.mlab.com:35956/yelpcamp_s1
 //var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
 //mongoose.connect(url);
 
-//this is the environment variable part..will be working with it at late night
+//this is the environment variable part
+
 var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
 mongoose.connect(url);
 
