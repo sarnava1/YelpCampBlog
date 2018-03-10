@@ -27,9 +27,9 @@ var commentRoutes    = require("./routes/comments"),
 
 
 //this is the environment variable part
-var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
-mongoose.connect(url);
-
+//var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
+//mongoose.connect(url);
+mongoose.connect("mongodb://sarnava:password1997@ds263948.mlab.com:63948/yelpcamp");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
