@@ -17,7 +17,8 @@ var express     = require("express"),
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
- 
+///////////////////////////////////////////////////////////////////////////////////////////////
+//THIS IS THE ENVIRONMENT VARIABLE PART..INITIALLY I WAS CONFUSED AND THAT IS WHY SO MANY COMMENTS
 //just printing the name of our development db to see if our environment variables work  
 //console.log(process.env.DATABASEURL);
 
@@ -29,8 +30,12 @@ var commentRoutes    = require("./routes/comments"),
 //this is the environment variable part
 //var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
 //mongoose.connect(url);
-mongoose.connect("mongodb://sarnava:password1997@ds263948.mlab.com:63948/yelpcamp");
 
+var url=process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
+mongoose.connect(url);
+//THE ENVIRONMENT VARIABLE CONCEPT ENDS HERE!!!!!!!!!!!!!!!!!!!!!!
+//TO KNOW MORE ABOUT THIS CONCEPT CHECK OUT THE VIDEOS OF COLT
+///////////////////////////////////////////////////////////////////////////////////////////////
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
