@@ -20,15 +20,16 @@ var commentRoutes    = require("./routes/comments"),
  
 //just printing the name of our development db to see if our environment variables work  
 //console.log(process.env.DATABASEURL);
-    
- //mongodb://sarnava:joymohunbagan@ds135956.mlab.com:35956/yelpcamp_s1
-//var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
-//mongoose.connect(url);
+
+//this is the name of our mongodb database   
+//mongodb://sarnava:joymohunbagan@ds135956.mlab.com:35956/yelpcamp_s1
+
+
 
 //this is the environment variable part
-//var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
-
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
 mongoose.connect(url);
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -61,6 +62,7 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
+
 
 
 app.listen(process.env.PORT, process.env.IP, function(){
