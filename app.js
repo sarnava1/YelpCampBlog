@@ -18,14 +18,6 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
 ///////////////////////////////////////////////////////////////////////////////////////////////
-//THIS IS THE ENVIRONMENT VARIABLE PART..INITIALLY I WAS CONFUSED AND THAT IS WHY SO MANY COMMENTS
-//just printing the name of our development db to see if our environment variables work  
-//console.log(process.env.DATABASEURL);
-
-//this is the name of our mongodb database   
-//mongodb://sarnava:joymohunbagan@ds135956.mlab.com:35956/yelpcamp_s1
-
-
 
 //this is the environment variable part
 //var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
@@ -45,6 +37,9 @@ app.use(flash());
 // seedDB(); //seed the database which we are not doing here..it was initially 
 //written so that we have some dummy data to play with
 
+//Now moment is available for use in all of your view files via the variable named moment
+app.locals.moment = require('moment');
+
 // PASSPORT CONFIGURATION
 app.use(require("express-session")({
     secret: "Sarnava is the best!!!!!!!!!!!!!!",
@@ -56,6 +51,8 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+
 
 app.use(function(req, res, next){
    res.locals.currentUser = req.user;
