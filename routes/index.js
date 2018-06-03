@@ -91,10 +91,17 @@ router.get("/logout", function(req, res){
    res.redirect("/campgrounds");
 });
 
+
 // forgot password
 router.get('/forgot', function(req, res) {
   res.render('forgot');
 });
+
+//reset password from logged in users
+router.get('/resetnotforget', function(req, res) {
+  res.render('resetnotforget');
+});
+
 
 router.post('/forgot', function(req, res, next) {
   async.waterfall([
