@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
-
+var Comment=require("./comment");
+var User=require("./user");
 var campgroundSchema = new mongoose.Schema({
    name: String,
    image: String,

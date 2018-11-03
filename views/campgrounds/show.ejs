@@ -16,7 +16,7 @@
         <h4 class="pull-right">
           $<%= campground.cost %>/night
         </h4>
-        <h4><a><%=campground.name%></a></h4>
+        <h4><a><%= campground.name %></a></h4>
         <p><%= campground.description %></p>
         <p>
           <em>Submitted by: <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>, <%= moment(campground.createdAt).fromNow() %></em>
