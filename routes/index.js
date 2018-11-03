@@ -41,9 +41,6 @@ router.post("/register", function(req, res){
         return res.redirect("/register");
       }
   
-  
-  
-  
     var newUser = new User({
         username: req.body.username,
         firstName: req.body.firstName,
@@ -79,7 +76,7 @@ router.post("/login", passport.authenticate("local",
     {
         successRedirect: "/campgrounds",
         failureRedirect: "/login",
-        failureFlash: true,
+        failureFlash: 'Username or password do not match',
         successFlash: 'Welcome to YelpCamp!'
     }), function(req, res){
 });
@@ -186,6 +183,7 @@ router.post('/reset/:token', function(req, res) {
           })
         } else {
             req.flash("error", "Passwords do not match.");
+   
             return res.redirect('back');
         }
       });
