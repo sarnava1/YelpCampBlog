@@ -31,7 +31,7 @@
                    <img src="<%= campground.image %>">
               <div class="caption">
                     <h4><%= campground.name %></h4>
-                    <% if (campground.rating === 0) { %>
+                    <% if (campground.reviews.length === 0) { %>
                     <em>No reviews yet.</em>
                     <% } else { %>
                     <span class="fa fa-star checked"></span>
