@@ -10,7 +10,8 @@ var express     = require("express"),
     methodOverride = require("method-override"),
     Campground  = require("./models/campground"),
     Comment     = require("./models/comment"),
-    User        = require("./models/user");
+    User        = require("./models/user"),
+    Review      = require("./models/review");
     
     
 //requiring routes
@@ -39,7 +40,7 @@ app.use(flash());
 //Now moment is available for use in all of your view files via the variable named moment
 app.locals.moment = require('moment');
 
-// PASSPORT CONFIGURATION
+/// PASSPORT CONFIGURATION
 app.use(require("express-session")({
     secret: "Sarnava is the best!!!!!!!!!!!!!!",
     resave: false,

@@ -5,8 +5,12 @@ var Review = require("./review");
 
 var campgroundSchema = new mongoose.Schema({
     name: String,
+    createdAt: { type: Date, default: Date.now },
     image: String,
     description: String,
+    location: String,
+    lat: Number,
+    lng: Number,
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
