@@ -1,4 +1,3 @@
-//this is just the beginning....huge no of features to come soon
 //here we are requiring the libraries of node.js
 var express     = require("express"),
     app         = express(),
